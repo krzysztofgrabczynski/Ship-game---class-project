@@ -24,8 +24,10 @@ class Ship:
     @speed.setter
     def speed(self, value):
         if value > 0:
-            self.__speed = value
-
+            self.__speed = value  
+        else: 
+            raise ValueError("Speed must be positive value")
+            
     @property
     def max_crew(self):
         return self.__max_crew
@@ -33,6 +35,8 @@ class Ship:
     def max_crew(self, value):
         if value > 0 and isinstance(value, int):
             return self.__max_crew == value
+        else:
+            raise ValueError("Max crew must be positive integer value")
         
     @property
     def capacity(self):
@@ -41,3 +45,5 @@ class Ship:
     def capacity(self, value):
         if value > 0:
             return self.__capacity == value
+        else:
+            raise ValueError("Capacity must be positive value")
