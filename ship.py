@@ -61,13 +61,10 @@ class Ship:
             return self
         else:
             raise ValueError("Crew can't be greater than max_crew (max_crew = {})".format(self.__max_crew))
+    def __isub__(self, other):
+        if self.__crew - other > 0:
+            self.__crew -= other
+            return self
+        else:
+            raise ValueError("Crew can't be less than 0 (crew = {})".format(self.__max_crew))
 
-
-# ship = Ship(1, 'Statek_1', 5, 10, 10) 
-# print('przed ', ship.crew, type(ship))
-# print(ship.max_crew)
-# print(ship.max_crew)
-# ship += 15
-# print('po ', type(ship), ship.crew)
-# print(ship.max_crew)
-# #ship+= 10
