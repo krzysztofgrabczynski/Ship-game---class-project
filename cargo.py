@@ -23,6 +23,9 @@ class Cargo(ABC):
 
     # methods
     
+    def __repr__(self):
+        return f"Cargo: {self.name}\nAmount: {self.amount}\nBase price: {self.base_price}"
+
     def __iadd__(self, other):
         self.__amount += other
         return self
@@ -33,9 +36,6 @@ class Cargo(ABC):
             self.__amount -= other  
         return self
     def __eq__(self, other):
-        pass
-    @abstractmethod
-    def __sub__(self, other):
         pass
     
     @abstractmethod
