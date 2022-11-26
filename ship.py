@@ -5,6 +5,7 @@ class Ship:
         self.__speed = speed
         self.__max_crew = max_crew
         self.__capacity = capacity
+        self.__crew = 0
 
     # properties
     @property
@@ -34,7 +35,7 @@ class Ship:
     @max_crew.setter
     def max_crew(self, value):
         if value > 0 and isinstance(value, int):
-            return self.__max_crew == value
+            self.__max_crew = value
         else:
             raise ValueError("Max crew must be positive integer value")
         
@@ -44,6 +45,29 @@ class Ship:
     @capacity.setter
     def capacity(self, value):
         if value > 0:
-            return self.__capacity == value
+            self.__capacity = value
         else:
             raise ValueError("Capacity must be positive value")
+
+    @property
+    def crew(self):
+        return self.__crew
+
+
+    # methods
+    def __iadd__(self, other):
+        if self.__crew + other <= self.__max_crew:
+            self.__crew += other
+            return self
+        else:
+            raise ValueError("Crew can't be greater than max_crew (max_crew = {})".format(self.__max_crew))
+
+
+# ship = Ship(1, 'Statek_1', 5, 10, 10) 
+# print('przed ', ship.crew, type(ship))
+# print(ship.max_crew)
+# print(ship.max_crew)
+# ship += 15
+# print('po ', type(ship), ship.crew)
+# print(ship.max_crew)
+# #ship+= 10
