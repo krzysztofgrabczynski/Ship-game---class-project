@@ -36,3 +36,12 @@ class TestsShip:
         ship.max_crew = 5
         with pytest.raises(ValueError):  
             ship += 30
+    def test_ship_subtracting_crew_with_correct_value(self):
+        ship = Ship(1, 'Statek_1', 5, 20, 10) 
+        ship += 20
+        ship -= 15
+        assert ship.crew == 5
+    def test_ship_subtracting_crew_with_incorrect_value(self):
+        ship = Ship(1, 'Statek_1', 5, 10, 10) 
+        with pytest.raises(ValueError):  
+            ship -= 15
