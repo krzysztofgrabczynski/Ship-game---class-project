@@ -1,2 +1,2 @@
 from ship_tests import TestsShip
-from fruit_tests import TestsFruit
+from cargo_tests import TestsFruit, TestsAlcohol
