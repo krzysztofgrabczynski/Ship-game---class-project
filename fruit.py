@@ -7,6 +7,8 @@ class Fruit(Cargo):
         self.__expire_date = 10
         self.__rotten_time = self.__expire_date
         
+    # methods
+
     def __sub__(self, other):
         if self.__rotten_time > 0:
             self.__rotten_time -= 1
@@ -15,5 +17,3 @@ class Fruit(Cargo):
 
     def getPrice(self):
         return self.base_price * (self.__rotten_time / self.__expire_date)
-
-
