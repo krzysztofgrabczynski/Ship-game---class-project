@@ -55,6 +55,10 @@ class Ship:
 
 
     # methods
+
+    def __repr__(self):
+        return f"Ship: {self.__name}\nSpeed: {self.__speed}\nCrew: {self.__crew}\nMax crew: {self.__max_crew}\nCapacity: {self.__capacity}"
+
     def __iadd__(self, other):
         if self.__crew + other <= self.__max_crew:
             self.__crew += other
