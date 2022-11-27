@@ -2,19 +2,20 @@ from cargo import Cargo
 from enum import Enum
 
 
+
 class Item(Cargo):
-    def __init__(self, name, amount, base_price, rarity):
-        super().__init__(name, amount, base_price)
-        if isinstance(rarity, Item.Rarity):
-            self.__rarity = rarity
-        else:
-            raise TypeError('Rarity must be a Item.Rarity class instance')
-        
     class Rarity(Enum):
         common = 1
         rare = 5
         epic = 20
         legendary = 50
+
+    def __init__(self, name: str, amount: int, base_price: int, rarity: Rarity):
+        super().__init__(name, amount, base_price)
+        if isinstance(rarity, Item.Rarity):
+            self.__rarity = rarity
+        else:
+            raise TypeError('Rarity must be a Item.Rarity class instance')   
 
     # properties
 

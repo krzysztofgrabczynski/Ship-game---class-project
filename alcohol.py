@@ -2,7 +2,7 @@ from cargo import Cargo
 
 
 class Alcohol(Cargo):
-    def __init__(self, name, amount, base_price, percentage = 96):
+    def __init__(self, name: str, amount: int, base_price: int, percentage: int=96):
         super().__init__(name, amount, base_price)
         self.__percentage = percentage
         self.__base_percentage = 96

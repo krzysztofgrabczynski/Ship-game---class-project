@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Cargo(ABC):
-    def __init__(self, name, amount, base_price):
+    def __init__(self, name: str, amount: int, base_price: int):
         self.__name = name
         self.__amount = amount
         self.__base_price = base_price

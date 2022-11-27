@@ -1,5 +1,5 @@
 class Ship:
-    def __init__(self, id, name, speed=1, max_crew=1, capacity=1):
+    def __init__(self, id: int, name: str, speed: int=1, max_crew: int=1, capacity: int=1):
         self.__id = id
         self.__name = name
         self.__speed = speed
