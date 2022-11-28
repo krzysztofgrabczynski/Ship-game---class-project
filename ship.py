@@ -7,6 +7,9 @@ class Ship:
         self.__capacity = capacity
         self.__crew = 0
 
+        self.__cargo = []
+        self.__filled_capacity = 0
+
     # properties
     @property
     def id(self):
@@ -53,6 +56,9 @@ class Ship:
     def crew(self):
         return self.__crew
 
+    @property
+    def cargo(self):
+        return self.__cargo
 
     # methods
 
@@ -72,3 +78,19 @@ class Ship:
         else:
             raise ValueError("Crew can't be less than 0 (crew = {})".format(self.__max_crew))
 
+
+    def __get_available_capacity(self, cargo):
+        if self.__capacity <= self.__filled_capacity or cargo.amount > self.__capacity:
+            #print(f'Lack of space available on ship: {self.__name}')
+            raise ValueError(f"Lack of space available on ship: {self.__name}")
+        else:
+            return self.__capacity - self.__filled_capacity
+
+    def load(self, cargo):
+        if self.__get_available_capacity(cargo) >= cargo.amount:
+            self.cargo.append(cargo)
+            self.__filled_capacity += cargo.amount
+
+    def unload(self, cargo_index: int):
+        removed_cargo = self.cargo.pop(cargo_index)
+        print(f'Removed cargo: {removed_cargo}')
