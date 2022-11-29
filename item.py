@@ -26,7 +26,10 @@ class Item(Cargo):
     # methods
 
     def __repr__(self):
-        return super().__repr__() + '\n' + 'Rarity: {}'.format(self.__rarity)
+        return super().__repr__() + '\n' + 'Rarity: {}'.format(self.__rarity.name)
+
+    def __eq__(self, other):
+        return super().__eq__(other) and self.__rarity == other.rarity
 
     def getPrice(self):
         return self.base_price * self.__rarity.value
