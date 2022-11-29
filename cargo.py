@@ -36,7 +36,7 @@ class Cargo(ABC):
             self.__amount -= other  
         return self
     def __eq__(self, other):
-        pass
+        return self.__name == other.name and self.__amount == other.amount and self.__base_price == other.base_price
     
     @abstractmethod
     def getPrice(self):
