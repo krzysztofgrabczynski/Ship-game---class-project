@@ -18,6 +18,9 @@ class Alcohol(Cargo):
     def __repr__(self):
         return super().__repr__() + "\n" + "Percentage: {}".format(self.__percentage)
         
+    def __eq__(self, other):
+        return super().__eq__(other) and self.__percentage == other.percentage 
+
     def getPrice(self):
         return self.base_price * (self.__percentage / self.__base_percentage)
 
