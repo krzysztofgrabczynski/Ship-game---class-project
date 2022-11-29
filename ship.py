@@ -60,6 +60,10 @@ class Ship:
     def cargo(self):
         return self.__cargo
 
+    @property
+    def filled_capacity(self):
+        return self.__filled_capacity
+
     # methods
 
     def __repr__(self):
