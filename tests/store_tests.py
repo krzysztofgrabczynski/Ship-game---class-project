@@ -11,22 +11,25 @@ from player import Player
 
 
 class TestsStore:
-    def test_store_get_random_cargo_function(self):
+
+    @pytest.fixture
+    def store(self):
         store = Store('Sklep_1')
+        return store
+
+    def test_store_get_random_cargo_function(self, store):
         store.get_random_cargo()
         store.get_random_cargo()
         assert len(store.cargo) == 2
         assert isinstance(store.cargo[0], Cargo)
         assert isinstance(store.cargo[1], Cargo)
-    def test_store_add_cargo_function(self):
-        store = Store('Sklep_1')
+    def test_store_add_cargo_function(self, store):
         store._add_cargo(Item('miecz', 10, 50, Item.Rarity.common))
         assert len(store.cargo) == 1
         assert isinstance(store.cargo[0], Cargo)
-    def test_store_buy_option_positive(self):
+    def test_store_buy_option_positive(self, store):
         ship = Ship(1, 'Statek_1', 5, 10, 1000)
         player = Player('Krzysztof', ship, 1000)
-        store = Store('Sklep_1')
 
         store._add_cargo(Item('miecz', 10, 50, Item.Rarity.common))
         cargo_to_buy = Item('miecz', 10, 50, Item.Rarity.common)
@@ -36,18 +39,16 @@ class TestsStore:
         assert player.money == 1000 - price
         assert len(store.cargo) == 0
         assert len(player.ship.cargo) == 1
-    def test_store_buy_option_negative_lack_of_cargo(self):
+    def test_store_buy_option_negative_lack_of_cargo(self, store):
         ship = Ship(1, 'Statek_1', 5, 10, 1000)
         player = Player('Krzysztof', ship, 1000)
-        store = Store('Sklep_1')
 
         cargo_to_buy = Item('miecz', 10, 50, Item.Rarity.common)
         with pytest.raises(ValueError):
             store.buy(cargo_to_buy, player)
-    def test_store_buy_option_negative_lack_of_money(self):
+    def test_store_buy_option_negative_lack_of_money(self, store):
         ship = Ship(1, 'Statek_1', 5, 10, 1000)
         player = Player('Krzysztof', ship, 0)
-        store = Store('Sklep_1')
 
         store._add_cargo(Item('miecz', 10, 50, Item.Rarity.common))
         cargo_to_buy = Item('miecz', 10, 50, Item.Rarity.common)
@@ -55,10 +56,9 @@ class TestsStore:
         assert player.money == 0
         assert len(store.cargo) == 1
         assert len(player.ship.cargo) == 0
-    def test_store_buy_option_negative_lack_of_space_v1(self):
+    def test_store_buy_option_negative_lack_of_space_v1(self, store):
         ship = Ship(1, 'Statek_1', 5, 10, 0)
         player = Player('Krzysztof', ship, 1000)
-        store = Store('Sklep_1')
 
         store._add_cargo(Item('miecz', 10, 50, Item.Rarity.common))
         cargo_to_buy = Item('miecz', 10, 50, Item.Rarity.common)
