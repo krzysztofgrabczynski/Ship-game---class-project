@@ -38,8 +38,30 @@ print(f"Rotten time of {fruit.name} after substracting: ", fruit.rotten_time)
 # checking distance between ship and first island
 print(100*'#', '\n', f"Ship coordinates: {player.ship.coordinates} and first island coordiantes: {map.list_of_islands[0].coordinates}")
 print("Distance: ", player.ship.coordinates.distance(map.list_of_islands[0].coordinates))
+print('\n')
+# trying to byu something in store_1 before coming to specific island with this store
+# it is commented because when player is not on specific island and player is trying to buy in store
+# it raises AttributeError
 
+#cargo_to_by = map.list_of_islands[0].store.cargo.copy()
+#map.list_of_islands[0].store.buy(cargo_to_by[0], player)
 
+# checking if player is on island and try to buy something in store
+player.ship.coordinates.x = map.list_of_islands[0].coordinates.x
+player.ship.coordinates.y = map.list_of_islands[0].coordinates.y
+print(100*'#', '\n', f"Ship coordinates: {player.ship.coordinates}")
+print(100*'#', '\n', player.ship == map.list_of_islands[0] )
+# buying something in store
+print(100*'#', '\n', f"Cargo in store before buying:\n", map.list_of_islands[0].store.cargo)
+print(f"Cargo on player's ship before buying:\n", player.ship.cargo)
+print(f"Filled capacity on player's ship before buying:", player.ship.filled_capacity)
+print(f"Player's money before buying:", player.money)
+cargo_to_by = map.list_of_islands[0].store.cargo.copy()
+map.list_of_islands[0].store.buy(cargo_to_by[0], player)
+print(100*'#', '\n', f"Cargo in store after buying:\n", map.list_of_islands[0].store.cargo)
+print(f"Cargo on player's ship after buying:\n", player.ship.cargo)
+print(f"Filled capacity on player's ship before buying:", player.ship.filled_capacity)
+print(f"Player's money before buying:", player.money)
 
 #####################################
 ########### GAME BODY END ###########
