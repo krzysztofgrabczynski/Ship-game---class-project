@@ -35,6 +35,8 @@ class Store():
         self.__name = name
         self.__cargo = []
 
+        self.__is_player_available = False
+
     # properties
 
     @property
@@ -93,6 +95,8 @@ class Store():
         player.money -=cargo.amount * cargo.getPrice() 
 
     def buy(self, cargo_to_buy, player: Player):
+        if not self.__is_player_available:
+            raise AttributeError('Player is not on specific island with this store')
         if cargo_to_buy in self.__cargo:
             if not self.__enought_money(player, cargo_to_buy):
                 print(self.Response.lack_of_money) 
