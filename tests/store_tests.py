@@ -15,6 +15,7 @@ class TestsStore:
     @pytest.fixture
     def store(self):
         store = Store('Sklep_1')
+        store._Store__is_player_available = True
         return store
 
     def test_store_get_random_cargo_function(self, store):
