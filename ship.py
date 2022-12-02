@@ -1,11 +1,16 @@
+from coordinates import Coordinates
+
+
 class Ship:
-    def __init__(self, id: int, name: str, speed: int=1, max_crew: int=1, capacity: int=1):
+    def __init__(self, id: int, name: str, speed: int=1, max_crew: int=1, 
+                 capacity: int=1, coordinates: Coordinates=Coordinates()):
         self.__id = id
         self.__name = name
         self.__speed = speed
         self.__max_crew = max_crew
         self.__capacity = capacity
         self.__crew = 0
+        self.__coordinates = coordinates
 
         self.__cargo = []
         self.__filled_capacity = 0
@@ -63,6 +68,10 @@ class Ship:
     @property
     def filled_capacity(self):
         return self.__filled_capacity
+
+    @property
+    def coordinates(self):
+        return self.__coordinates
 
     # methods
 
