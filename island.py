@@ -1,5 +1,6 @@
 from coordinates import Coordinates
 from store import Store
+from ship import Ship
 
 
 class Island:
@@ -7,9 +8,6 @@ class Island:
         self.__name = name
         self.__store = store
         self.__coordinates = coordinates
-        self.__coordinates_x = coordinates.x
-        self.__coordinates_y = coordinates.y
-
 
     # properties
 
@@ -25,15 +23,14 @@ class Island:
     def coordinates(self):
         return self.__coordinates
 
-    @property
-    def coordinates_x(self):
-        return self.__coordinates_x
-
-    @property
-    def coordinates_y(self):
-        return self.__coordinates_y
 
     # methods
 
     def __repr__(self) -> str:
         return f'Island: {self.__name} with store: {self.store.name}\n'
+
+    def __eq__(self, ship :Ship):
+        if self.__coordinates.coords == ship.coordinates.coords:
+            self.__store._Store__is_player_available = True
+            print(f'You are on {self.__name} island. You can buy something in {self.__store.name} store')
+        
