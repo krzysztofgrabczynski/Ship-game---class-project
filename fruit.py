@@ -7,6 +7,10 @@ class Fruit(Cargo):
         self.__expire_date = 10
         self.__rotten_time = self.__expire_date
         
+    @property
+    def rotten_time(self):
+        return self.__rotten_time
+
     # methods
 
     def __sub__(self, other):
