@@ -1,6 +1,11 @@
+from coordinates import Coordinates
+from store import Store
+
+
 class Island:
-    def __init__(self, name, coordinates):
+    def __init__(self, name: str, store: Store, coordinates: Coordinates=Coordinates()):
         self.__name = name
+        self.__store = store
         self.__coordinates = coordinates
         self.__coordinates_x = coordinates.x
         self.__coordinates_y = coordinates.y
@@ -11,6 +16,11 @@ class Island:
     @property
     def name(self):
         return self.__name
+
+    @property
+    def store(self):
+        return self.__store
+
     @property
     def coordinates(self):
         return self.__coordinates
