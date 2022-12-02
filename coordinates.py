@@ -7,7 +7,7 @@ class Coordinates:
     __map_width = 400
     __map_height = 400
 
-    def random_cords(self):
+    def __random_cords(self):
         while True:
             x = randint(1, self.__map_width)
             y = randint(1, self.__map_height)
@@ -18,7 +18,7 @@ class Coordinates:
         
         
     def __init__(self):
-        self.__cords = self.random_cords()
+        self.__cords = self.__random_cords()
         self.__x = self.__cords[0]
         self.__y = self.__cords[1]
 
