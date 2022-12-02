@@ -33,3 +33,7 @@ class Island:
     def coordinates_y(self):
         return self.__coordinates_y
 
+    # methods
+
+    def __repr__(self) -> str:
+        return f'Island: {self.__name} with store: {self.store.name}\n'
