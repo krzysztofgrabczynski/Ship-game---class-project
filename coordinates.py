@@ -9,8 +9,8 @@ class Coordinates:
 
     def random_cords(self):
         while True:
-            x = randint(0, self.__map_width)
-            y = randint(0, self.__map_height)
+            x = randint(1, self.__map_width)
+            y = randint(1, self.__map_height)
             cord = (x, y)
             if not cord in self.__list_of_used_coordinates:
                 self.__list_of_used_coordinates.append(cord)
