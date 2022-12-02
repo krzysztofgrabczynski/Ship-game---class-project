@@ -39,6 +39,11 @@ class Coordinates:
     def y(self, new_y):
         self.__y = new_y
 
+    @property
+    def coords(self):
+        self.__cords = (self.__x, self.__y)
+        return self.__cords
+    
     # methods
 
     def __repr__(self) -> str:
