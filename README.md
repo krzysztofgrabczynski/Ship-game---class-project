@@ -1,4 +1,5 @@
-# Ship-game---class-project
+# <p align=center> <a name="top">Ship-game---class-project </a></p>  
+
 
 This is a simple game project made entirely on classes
 
@@ -9,3 +10,13 @@ Basic things that you can do in this game:
 - buying stuff from specific store (with randomly generated cargos) if you have enough money, free space on ship and if you are on the right island
 
 This game was created for educational purposes
+
+
+<br><br>
+
+
+If you want to check out my other projects [click here.](https://github.com/krzysztofgrabczynski)
+
+
+
+
